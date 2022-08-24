@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupEmailIntent() {
+        
         // Initialise the different views from the UI using findViewById.
         final EditText nameEditText = findViewById(R.id.coffee_name_edit_text);
         final Button plusButton = findViewById(R.id.plus_button);
