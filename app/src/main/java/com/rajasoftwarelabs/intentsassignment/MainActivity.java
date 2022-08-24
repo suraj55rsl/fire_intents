@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void fireExplicitIntent(@NonNull String name) {
 
-        Intent intent= new Intent(MainActivity.this,NameActivity.class);
+        Intent intent= new Intent(this,NameActivity.class);
         intent.putExtra("keyname",name);
         startActivity(intent);
     }
