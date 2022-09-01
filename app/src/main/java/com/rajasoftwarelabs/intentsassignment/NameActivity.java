@@ -18,8 +18,7 @@ public class NameActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
-        // TODO (2): Get the name in the intent sent from MainActivity
+        // Getting name from the MainActivity
         String name = getIntent().getStringExtra("keyname");
         TextView nameTextView = findViewById(R.id.name_text_view);
         nameTextView.setText(getString(R.string.name_activity_text, name));

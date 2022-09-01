@@ -18,7 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
 
     // region Constants
-    @NonNull private static final String[] EMAIL_ADDRESS = new String[] { "coffee@dummyCoffeeShop.com" };
+    @NonNull private static final String []EMAIL_ADDRESS =new String[] { "coffee@dummyCoffeeShop.com" };
 
     private static final int MIN_COFFEES = 1;
     private static final int MAX_COFFEES = 20; // Varies from developer to developer :)
@@ -108,19 +108,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void fireExplicitIntent(@NonNull String name) {
-
+        //Explicit Intent Implemented here
         Intent intent= new Intent(this,NameActivity.class);
         intent.putExtra("keyname",name);
         startActivity(intent);
     }
 
     private void fireEmailIntent(@NonNull String name) {
-        // Populate the subject and body template strings with the name and number of coffees.
+        // Implicit intents is fired
+
         String subject = getString(R.string.email_subject, name);
         String body = getResources().getQuantityString(R.plurals.email_body, numCoffees, numCoffees, name);
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("message age/rfc822");
 
-        // TODO (4): Create and fire an implicit intent to open the email app. The email address to send to is the
-        //           EMAIL_ADDRESS constant.
+        intent.putExtra(Intent.EXTRA_EMAIL, EMAIL_ADDRESS);
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        intent.putExtra(Intent.EXTRA_TEXT, body);
+        startActivity(Intent.createChooser(intent,"Enail via"));
+
     }
 
     private void fireCameraIntent() {
