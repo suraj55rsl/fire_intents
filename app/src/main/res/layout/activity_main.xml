@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -91,14 +92,14 @@
         app:layout_constraintTop_toTopOf="@id/minus_button"
         tools:text="3" />
 
-    <Button
-        android:id="@+id/plus_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:minWidth="48dp"
-        android:text="@string/plus"
-        app:layout_constraintStart_toEndOf="@id/num_coffees_text"
-        app:layout_constraintTop_toBottomOf="@id/coffee_name_edit_text" />
+        <Button
+            android:id="@+id/plus_button"
+            android:layout_width="39dp"
+            android:layout_height="46dp"
+            android:minWidth="48dp"
+            android:text="@string/plus"
+            app:layout_constraintStart_toEndOf="@id/num_coffees_text"
+            app:layout_constraintTop_toBottomOf="@id/coffee_name_edit_text" />
 
     <Button
         android:id="@+id/send_email_button"
