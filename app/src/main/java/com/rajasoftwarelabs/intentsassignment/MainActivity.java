@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.view.View;
@@ -15,10 +16,12 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.File;
+
 public class MainActivity extends AppCompatActivity {
 
     // region Constants
-    @NonNull private static final String []EMAIL_ADDRESS =new String[] { "coffee@dummyCoffeeShop.com" };
+    @NonNull private static final String []EMAIL_ADDRESS =new String[] { "coffee@dummyCoffeeShop.com","surajbaranwal56@gmail.com" };
 
     private static final int MIN_COFFEES = 1;
     private static final int MAX_COFFEES = 20; // Varies from developer to developer :)
@@ -119,17 +122,23 @@ public class MainActivity extends AppCompatActivity {
 
         String subject = getString(R.string.email_subject, name);
         String body = getResources().getQuantityString(R.plurals.email_body, numCoffees, numCoffees, name);
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("message age/rfc822");
 
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("message/rfc822");
         intent.putExtra(Intent.EXTRA_EMAIL, EMAIL_ADDRESS);
         intent.putExtra(Intent.EXTRA_SUBJECT, subject);
         intent.putExtra(Intent.EXTRA_TEXT, body);
-        startActivity(Intent.createChooser(intent,"Enail via"));
+        startActivity(Intent.createChooser(intent,"Send by socil media messanger"));
 
     }
 
     private void fireCameraIntent() {
+        Intent intent = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);
+        File photo = new File(Environment.getExternalStorageDirectory(),  "Pic.jpg");
+        intent.putExtra(MediaStore.EXTRA_OUTPUT,
+                Uri.fromFile(photo));
+        Uri imageUri = Uri.fromFile(photo);
+        startActivity(intent);
         // TODO (5): Fire an implicit intent to open the camera and get an image as a result from it.
     }
 
