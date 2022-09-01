@@ -1,5 +1,4 @@
 package com.rajasoftwarelabs.intentsassignment;
-
 import android.os.Bundle;
 import android.widget.TextView;
 import androidx.annotation.Nullable;

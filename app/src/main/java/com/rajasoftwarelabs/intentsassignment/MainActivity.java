@@ -1,5 +1,4 @@
 package com.rajasoftwarelabs.intentsassignment;
-
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
